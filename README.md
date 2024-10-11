@@ -33,7 +33,7 @@ Back-End
 
 Front-End (React Native)
 
-    Clone the repository:
+Clone the repository:
 
 ```
 git clone https://github.com/yourusername/control-alert-app.git
@@ -60,7 +60,7 @@ Run the app (for iOS and Android emulators):
 
 Back-End (Node.js/Express)
 
-    Navigate to the backend folder:
+Navigate to the backend folder:
 
 ```
 cd control-alert-app/backend
