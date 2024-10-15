@@ -5,7 +5,6 @@ const authRoutes = require('./routes/userRoutes');
 const reportRoutes = require('./routes/reportRoutes');
 const app = express();
 
-// Charger les variables d'environnement
 dotenv.config();
 
 // Middleware pour parser le JSON
