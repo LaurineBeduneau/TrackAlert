@@ -15,7 +15,7 @@ const registerUser = async (req, res) => {
         user = new User({
             username,
             email,
-            password: await bcrypt.hash(password, 10), // Chiffrer le mot de passe
+            password: await bcrypt.hash(password, 10),
         });
 
         await user.save();
@@ -25,17 +25,17 @@ const registerUser = async (req, res) => {
 
         res.status(201).json({ token });
     } catch (error) {
+        console.log('Erreur lors de l/inscription:', error);
         res.status(500).json({ msg: 'Erreur lors de l\'inscription' });
     }
 };
 
 // Connexion
 const loginUser = async (req, res) => {
-    const { email, password } = req.body;
+    const { username, password } = req.body;
 
     try {
-        console.log('Email reçu', email);
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ username });
         if (!user) {
             console.log('Utilisateur non trouvé')
             return res.status(400).json({ msg: 'Utilisateur non trouvé' });
