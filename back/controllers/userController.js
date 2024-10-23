@@ -25,7 +25,6 @@ const registerUser = async (req, res) => {
 
         res.status(201).json({ token });
     } catch (error) {
-        console.log('Erreur lors de l/inscription:', error);
         res.status(500).json({ msg: 'Erreur lors de l\'inscription' });
     }
 };
@@ -45,7 +44,6 @@ const loginUser = async (req, res) => {
 
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            console.log('Mot de passe incorrect');
             return res.status(400).json({ msg: 'Mot de passe incorrect' });
         }
 
