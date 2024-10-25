@@ -29,7 +29,6 @@ const registerUser = async (req, res) => {
     }
 };
 
-// Connexion
 const loginUser = async (req, res) => {
     const { username, password } = req.body;
 
