@@ -9,12 +9,14 @@ const authMiddleware = function (req, res, next) {
 
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        console.log('Token décodé:', decoded);
         req.user = decoded.user;
-        console.log(req.user);
         next();
     } catch (err) {
+        console.error('Erreur de vérification du token:', err);
         res.status(401).json({ msg: 'Token invalide' });
     }
 };
+
 
 module.exports = authMiddleware;
