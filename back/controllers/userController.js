@@ -36,7 +36,7 @@ const loginUser = async (req, res) => {
     try {
         const user = await User.findOne({ username });
         if (!user) {
-            console.log('Utilisateur non trouvé')
+            console.log('Utilisateur non trouvé');
             return res.status(400).json({ msg: 'Utilisateur non trouvé' });
         }
 
@@ -50,10 +50,10 @@ const loginUser = async (req, res) => {
         const payload = { user: { id: user.id } };
         const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-        console.log('Connexion réussie, token généré');
+        console.log('Connexion réussie, token généré:', token);
         res.json({ token });
     } catch (error) {
-        console.error('Erreur de connexion:',error)
+        console.error('Erreur de connexion:', error);
         res.status(500).json({ msg: 'Erreur lors de la connexion' });
     }
 };
