@@ -1,22 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const Report = require('../models/Report');
 const authMiddleware = require('../middleware/auth');
+const { createReport, getTamReports } = require('../controllers/reportController');
 
-router.post('/', authMiddleware, async (req, res) => {
-    const { location } = req.body;
-    const report = new Report({
-        userId: req.user.id,
-        location,
-    });
-
-    try {
-        await report.save();
-        res.status(201).json({ message: 'Signalement créé' });
-    } catch (error) {
-        res.status(400).json({ error: 'Erreur lors de la création du signalement' });
-    }
-});
+router.post('/', authMiddleware, createReport);
 
 router.get('/', authMiddleware, async (req, res) => {
     try {
@@ -26,5 +13,7 @@ router.get('/', authMiddleware, async (req, res) => {
         res.status(400).json({ error: 'Erreur lors de la récupération des signalements' });
     }
 });
+
+router.get('/tam', authMiddleware, getTamReports);
 
 module.exports = router;
