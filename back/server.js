@@ -7,7 +7,6 @@ const app = express();
 
 dotenv.config();
 
-// Middleware pour parser le JSON
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
