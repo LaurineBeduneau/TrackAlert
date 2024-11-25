@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const authRoutes = require('./routes/userRoutes');
 const reportRoutes = require('./routes/reportRoutes');
+const tamRoutes = require('./routes/tamRoutes');
 const app = express();
 
 dotenv.config();
@@ -15,6 +16,7 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 
 app.use('/api/auth', authRoutes);
 app.use('/api/report', reportRoutes);
+app.use('/api/tam', tamRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
