@@ -1,14 +1,13 @@
 syntax = "proto3";
 
-package tam;
+package namespace;
 
-message VehicleData {
-  string vehicleId = 1;
-  double latitude = 2;
-  double longitude = 3;
-  string timestamp = 4;
+message TAMResponse {
+  string id = 1;
+  string name = 2;
+  string status = 3;
 }
 
-message VehicleList {
-  repeated VehicleData vehicles = 1;
+service TAMService {
+  rpc GetTAMData (google.protobuf.Empty) returns (TAMResponse);
 }
