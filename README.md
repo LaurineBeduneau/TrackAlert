@@ -1,5 +1,7 @@
 # TrackAlert
 
+Project in progress ...
+
 ## Overview
 
 Public Transport Control Alert is a mobile application designed to help users report and view the presence of public transport controllers in real-time. Similar to Waze, but for public transport, the app allows users to signal and get notified when controllers are nearby, ensuring a smoother commute.
